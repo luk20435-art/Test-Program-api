@@ -16,6 +16,9 @@ export class Budget {
   @Column()
   year: number;
 
+  @Column({default: null})
+  description: string;
+
   @ManyToOne(() => Department, { onDelete: 'CASCADE' })
   @JoinColumn({ name: 'department_id' })
   department: Department;
@@ -28,8 +31,5 @@ export class Budget {
   amount: number;
 
   @Column({ type: 'date', nullable: true })
-  start_date: Date;
-
-  @Column({ type: 'date', nullable: true })
-  end_date: Date;
+  date: Date; 
 }

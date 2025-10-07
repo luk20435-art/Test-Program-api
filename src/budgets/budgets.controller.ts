@@ -17,7 +17,9 @@ export class BudgetsController {
     }
 
     @Post()
-    create(@Body() data: Partial<Budget>) {
+    create(@Body() data: Partial<any>) {
+        const year = new Date(data?.date).getFullYear(); 
+        data.year = year;
         return this.service.create(data);
     }
 
